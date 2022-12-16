@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 const WeatherCard = ({ weather }) => {
   const currentTemp = (weather && weather.current.temp_c) || "";
   const feelsLike = (weather && weather.current.feelslike_c) || "";
@@ -10,7 +12,9 @@ const WeatherCard = ({ weather }) => {
   const pressure = (weather && weather.current.pressure_mb) || "";
   const cloud = (weather && weather.current.cloud) || "";
   const uv = (weather && weather.current.uv) || "";
-  console.log(weather);
+  const airQuality =
+    (weather && weather.current.air_quality["us-epa-index"]) || "";
+
   return (
     <div className="max-w-sm mx-auto bg-white border-gray-200  rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
       <div className="flex flex-col md:flex-row justify-evenly dark:text-white ">
@@ -18,6 +22,23 @@ const WeatherCard = ({ weather }) => {
           <div className="flex flex-col">
             <p className="dark:text-white text-3xl"> {currentTemp}°C</p>
             <p>It feels like: {feelsLike}</p>
+
+            <p>
+              Air Quality:{" "}
+              {airQuality === 1
+                ? "Good"
+                : airQuality === 2
+                ? "airQuality"
+                : airQuality === 3
+                ? "Unhealthy for sensitive group"
+                : airQuality === 4
+                ? "Unhealthy"
+                : airQuality === 5
+                ? "Very Unhealthy"
+                : airQuality === 6
+                ? "Hazardous"
+                : "No Data"}
+            </p>
           </div>
 
           <div className="flex flex-col items-center justify-center ">
@@ -33,16 +54,13 @@ const WeatherCard = ({ weather }) => {
         <section className="flex justify-between">
           <div className="mx-2 text-lg ">
             <p className="my-0.5">Last Updated : {lastUpdated}</p>
-            <p className="my-0.5">
-              Precipitation: {precipitation === 0 ? 0 : precipitation} mm
-            </p>
+            <p className="my-0.5">Precipitation: {precipitation} mm</p>
             <p className="my-0.5">Humidity: {humidity} %</p>
             <p className="my-0.5">Wind: {windSpeed} KPH</p>
             <p className="my-0.5">Wind direction: {windDir}</p>
             <p className="my-0.5">Pressure: {pressure} MB</p>
             <p className="my-0.5">Cloud Cover: {cloud} % </p>
             <p className="my-0.5">UV index: {uv}</p>
-            <p className="my-0.5">Air quality: {uv}</p>
           </div>
         </section>
       </div>
