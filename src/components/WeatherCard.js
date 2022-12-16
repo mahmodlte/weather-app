@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 const WeatherCard = ({ weather }) => {
   const currentTemp = (weather && weather.current.temp_c) || "";
   const feelsLike = (weather && weather.current.feelslike_c) || "";
