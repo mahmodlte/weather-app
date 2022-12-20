@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import WeatherCard from "../components/WeatherCard";
 import { getWeatherData } from "../utils/weatherData";
 
-const Weather = () => {
+const Weather = ({ searchQuery }) => {
   const [currentWeather, setCurentWeather] = useState();
 
   useEffect(() => {
-    getWeatherData("current").then((weather) => {
+    getWeatherData("current", searchQuery).then((weather) => {
       setCurentWeather(weather);
     });
-  }, []);
+  }, [searchQuery]);
 
   return (
     <div className="h-screen bg-gray-900">
