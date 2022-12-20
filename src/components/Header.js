@@ -1,6 +1,6 @@
 import SearchCity from "./SearchCity";
 import WeatherLogo from "../assets/Applogo.svg";
-const Header = () => {
+const Header = ({ setSearch }) => {
   return (
     <div className=" flex items-center bg-gray-900 ">
       <div className=" flex justify-center items-center my-2 mx-5">
@@ -14,7 +14,7 @@ const Header = () => {
         />
       </div>
       <div className=" mx-16">
-        <SearchCity />
+        <SearchCity setSearch={setSearch} />
       </div>
     </div>
   );
