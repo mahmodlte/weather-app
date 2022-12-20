@@ -9,7 +9,8 @@ export const getWeatherData = async (type, query) => {
 };
 
 export const searchAutoComplete = async (query) => {
-  const res = fetch(`${BASE_URL}/v1/search.json?key=${API_KEY}&q=${query}`);
+  const res = await fetch(`${BASE_URL}/search.json?key=${API_KEY}&q=${query}`);
+
   const searchResult = await res.json();
   return searchResult;
 };
