@@ -3,7 +3,7 @@ const WeatherCard = ({ weather }) => {
   const feelsLike = (weather && weather.current.feelslike_c) || "";
   const condition = (weather && weather.current.condition) || "";
   const lastUpdated = (weather && weather.current.last_updated) || "";
-  const precipitation = (weather && weather.current.precip_mm) || "";
+  const precipitation = (weather && weather.current.precip_mm) || 0;
   const humidity = (weather && weather.current.humidity) || "";
   const windDir = (weather && weather.current.wind_dir) || "";
   const windSpeed = (weather && weather.current.wind_kph) || "";
@@ -45,7 +45,7 @@ const WeatherCard = ({ weather }) => {
               src={condition.icon}
               alt=" weather condition icon"
             />
-            <div className="">{condition.text}</div>
+            <div className="w-24 overflow-hidden">{condition.text}</div>
           </div>
         </section>
         <span className=" h-0.5 w-80 mx-auto my-2 bg-white lg:w1/3"></span>
