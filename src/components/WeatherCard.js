@@ -26,7 +26,7 @@ const WeatherCard = ({ weather }) => {
               {airQuality === 1
                 ? "Good"
                 : airQuality === 2
-                ? "airQuality"
+                ? "Moderate"
                 : airQuality === 3
                 ? "Unhealthy for sensitive group"
                 : airQuality === 4
