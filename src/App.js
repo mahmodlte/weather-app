@@ -5,7 +5,7 @@ function App() {
   const [search, setSearch] = useState("Erbil,IQ");
 
   return (
-    <div className=" ">
+    <div>
       <Header setSearch={setSearch} />
       <Weather searchQuery={search} />
     </div>
