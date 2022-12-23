@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
-import WeatherCard from "../components/WeatherCard";
-import { getWeatherData } from "../utils/weatherData";
+import WeatherCard from "../components/weatherCard/WeatherCard";
+import { getWeatherForecast } from "../utils/weatherData";
 
 const Weather = ({ searchQuery }) => {
-  const [currentWeather, setCurentWeather] = useState();
+  const [weatherForecast, setWeatherForecast] = useState();
 
   useEffect(() => {
-    getWeatherData("current", searchQuery).then((weather) => {
-      setCurentWeather(weather);
+    getWeatherForecast(searchQuery).then((forecast) => {
+      console.log(forecast);
+      setWeatherForecast(forecast);
     });
   }, [searchQuery]);
 
   return (
-    <div className="h-screen bg-gray-900">
+    <div className="h-auto sm:h-screen bg-gray-900">
       <div>
         <div>
           <h1 className="text-white text-2xl px-10 py-10">Today Forecast</h1>
-          <WeatherCard weather={currentWeather} />
+          <WeatherCard weather={weatherForecast} />
         </div>
         <div>
-          <h1 className="text-white text-2xl px-10 py-10">14 Days Forecast</h1>
-          {/* <WeatherCard /> */}
+          <h1 className="text-white text-2xl px-10 py-10">2 Days Forecast</h1>
         </div>
       </div>
     </div>
