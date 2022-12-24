@@ -14,7 +14,7 @@ const Weather = ({ searchQuery }) => {
     }
   }, [searchQuery]);
   return (
-    <div className=" dark:text-white text-gray-900 h-auto md:h-screen dark:bg-gray-900">
+    <div className=" dark:text-white text-gray-900 h-full md:h-screen dark:bg-gray-900">
       <div>
         <div>
           <h1 className=" text-2xl px-10 py-10">Today Forecast</h1>
