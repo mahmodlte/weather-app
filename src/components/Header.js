@@ -10,7 +10,7 @@ const Header = ({ setSearch }) => {
           width={50}
           height={50}
           src={WeatherLogo}
-          alt="Weather app logo"
+          alt="Weatherly app logo"
         />
       </div>
       <div className="my-2">
