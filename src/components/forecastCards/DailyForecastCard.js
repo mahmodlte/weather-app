@@ -1,16 +1,11 @@
-import AirQuality from "./AirQuality";
-
 const DailyForecastCard = ({ weather }) => {
-  console.log(weather);
   const avgTemp = (weather && weather.day.avgtemp_c) || "";
-
   const condition = (weather && weather.day.condition) || "";
   const date = (weather && weather.date) || "";
   const precipitation = (weather && weather.day.totalprecip_mm) || 0;
   const chanceOfRain = (weather && weather.day.daily_chance_of_rain) || 0;
   const maxTemp = (weather && weather.day.maxtemp_c) || "";
   const minTemp = (weather && weather.day.mintemp_c) || "";
-
   const avgHumidity = (weather && weather.day.avghumidity) || "";
   const maxWindSpeed = (weather && weather.day.maxwind_kph) || "";
 

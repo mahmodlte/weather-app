@@ -13,7 +13,6 @@ const Weather = ({ searchQuery }) => {
       });
     }
   }, [searchQuery]);
-  console.log(weatherForecast);
   return (
     <div className=" dark:text-white text-gray-900 h-auto md:h-screen dark:bg-gray-900">
       <div>
@@ -24,7 +23,7 @@ const Weather = ({ searchQuery }) => {
           ) : (
             <h2 className="text-2xl m-16 dark:text-white">
               There is no selected city or country please use the search bar to
-              search your city{" "}
+              search your city
             </h2>
           )}
         </div>
