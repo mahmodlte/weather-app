@@ -3,7 +3,7 @@ const WeatherTooltip = ({ active, payload, label }) => {
 
   if (active && payload && payload.length) {
     return (
-      <div className=" w-full md:max-w-7xl mx-10 text-white bg-white border-gray-200  rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <div className=" w-full md:max-w-7xl px-5 text-white bg-white border-gray-200  rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
         <p className="mx-2">{payload[0].value}°C</p>
         <p className="mx-2">{date.getHours() + ":00"}</p>
       </div>

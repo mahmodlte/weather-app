@@ -1,17 +1,17 @@
 import HourlyForecastChart from "./HourlyForecastChart";
-
+import AirQuality from "./AirQuality";
 const WeatherCard = ({ weather }) => {
   const currentTemp = (weather && weather.current.temp_c) || "";
   const feelsLike = (weather && weather.current.feelslike_c) || "";
   const condition = (weather && weather.current.condition) || "";
-  const lastUpdated = (weather && weather.current.last_updated) || "";
+  // const lastUpdated = (weather && weather.current.last_updated) || "";
   const precipitation = (weather && weather.current.precip_mm) || 0;
   const humidity = (weather && weather.current.humidity) || "";
-  const windDir = (weather && weather.current.wind_dir) || "";
+  // const windDir = (weather && weather.current.wind_dir) || "";
   const windSpeed = (weather && weather.current.wind_kph) || "";
-  const pressure = (weather && weather.current.pressure_mb) || "";
+  // const pressure = (weather && weather.current.pressure_mb) || "";
   const cloud = (weather && weather.current.cloud) || "";
-  const uv = (weather && weather.current.uv) || "";
+  // const uv = (weather && weather.current.uv) || "";
   const airQuality =
     (weather && weather.current.air_quality["us-epa-index"]) || "";
 
@@ -22,39 +22,7 @@ const WeatherCard = ({ weather }) => {
           <div className="flex md:mx-5 flex-col">
             <p className="dark:text-white text-3xl "> {currentTemp}°C</p>
             <p>It feels like: {feelsLike}</p>
-
-            <p
-              className={
-                airQuality === 1
-                  ? "shadow-lg shadow-green-500 rounded-md"
-                  : airQuality === 2
-                  ? "shadow-lg shadow-amber-300 rounded-md"
-                  : airQuality === 3
-                  ? "shadow-lg shadow-orange-500 rounded-md"
-                  : airQuality === 4
-                  ? "shadow-lg shadow-orange-600 rounded-md"
-                  : airQuality === 5
-                  ? "shadow-lg shadow-orange-700 rounded-md"
-                  : airQuality === 6
-                  ? "shadow-lg shadow-red-600 rounded-md"
-                  : ""
-              }
-            >
-              Air Quality:{" "}
-              {airQuality === 1
-                ? "Good"
-                : airQuality === 2
-                ? "Moderate"
-                : airQuality === 3
-                ? "Unhealthy for sensitive group"
-                : airQuality === 4
-                ? "Unhealthy"
-                : airQuality === 5
-                ? "Very Unhealthy"
-                : airQuality === 6
-                ? "Hazardous"
-                : "No Data"}
-            </p>
+            <AirQuality airQuality={airQuality} />
           </div>
 
           <div className="flex flex-col items-center justify-center  ">
@@ -67,16 +35,12 @@ const WeatherCard = ({ weather }) => {
           </div>
         </section>
         <span className=" h-0.5 w-72 mx-auto my-2 md:hidden bg-white lg:w1/3"></span>
-        <section className="flex justify-between mx-6">
-          <div className=" text-lg ">
-            <p className="my-0.5">Last Updated : {lastUpdated}</p>
+        <section className="flex justify-between mx-3">
+          <div className=" text-sm divide-y ">
             <p className="my-0.5">Precipitation: {precipitation} mm</p>
             <p className="my-0.5">Humidity: {humidity} %</p>
             <p className="my-0.5">Wind: {windSpeed} KPH</p>
-            <p className="my-0.5">Wind direction: {windDir}</p>
-            <p className="my-0.5">Pressure: {pressure} MB</p>
             <p className="my-0.5">Cloud Cover: {cloud} % </p>
-            <p className="my-0.5">UV index: {uv}</p>
           </div>
         </section>
       </div>
