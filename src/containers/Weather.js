@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import WeatherCard from "../components/weatherCard/WeatherCard";
+import DailyForecastCard from "../components/forecastCards/DailyForecastCard";
+import WeatherCard from "../components/forecastCards/WeatherCard";
 import { getWeatherForecast } from "../utils/weatherData";
 
 const Weather = ({ searchQuery }) => {
@@ -7,13 +8,12 @@ const Weather = ({ searchQuery }) => {
 
   useEffect(() => {
     getWeatherForecast(searchQuery).then((forecast) => {
-      console.log(forecast);
       setWeatherForecast(forecast);
     });
   }, [searchQuery]);
-
+  console.log(weatherForecast);
   return (
-    <div className="h-auto sm:h-screen bg-gray-900">
+    <div className="h-auto bg-gray-900">
       <div>
         <div>
           <h1 className="text-white text-2xl px-10 py-10">Today Forecast</h1>
@@ -21,6 +21,10 @@ const Weather = ({ searchQuery }) => {
         </div>
         <div>
           <h1 className="text-white text-2xl px-10 py-10">2 Days Forecast</h1>
+          {weatherForecast &&
+            weatherForecast.forecast.forecastday.map((day) => {
+              return <DailyForecastCard weather={day} />;
+            })}
         </div>
       </div>
     </div>
