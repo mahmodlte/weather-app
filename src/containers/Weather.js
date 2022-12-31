@@ -16,7 +16,7 @@ const Weather = ({ searchQuery }) => {
   return (
     <div className=" dark:text-white text-gray-900 h-full md:h-screen dark:bg-gray-900">
       <div>
-        <div>
+        <section>
           <h1 className=" text-2xl px-10 py-10">Today Forecast</h1>
           {weatherForecast ? (
             <WeatherCard weather={weatherForecast} />
@@ -26,15 +26,15 @@ const Weather = ({ searchQuery }) => {
               search your city
             </h2>
           )}
-        </div>
+        </section>
         <h1 className=" text-2xl px-10 py-10">3 Days Forecast</h1>
 
-        <div className="sm:flex sm:mb-10">
+        <section className="sm:flex sm:mb-10">
           {weatherForecast &&
             weatherForecast.forecast.forecastday.map((day) => {
               return <DailyForecastCard weather={day} />;
             })}
-        </div>
+        </section>
       </div>
     </div>
   );
