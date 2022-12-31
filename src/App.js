@@ -5,10 +5,10 @@ function App() {
   const [search, setSearch] = useState();
 
   return (
-    <div>
+    <main className="h-screen">
       <Header setSearch={setSearch} />
       <Weather searchQuery={search} />
-    </div>
+    </main>
   );
 }
 
